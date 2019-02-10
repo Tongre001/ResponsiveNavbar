@@ -1,0 +1,240 @@
+/* Scss Document */
+
+/*Sets variables*/
+:root {
+  --background: #00026c;
+}
+
+/*Stylize page*/
+
+body {
+  /*@include font-base;*/
+  line-height: 1.6;
+  display: grid;
+  grid-template-rows: 10em 50vh auto 10em;
+  grid-template-columns: 1fr 5fr 5fr 1fr;
+  grid-template-areas:
+    "header header header header"
+    "hero hero hero hero"
+    ". main sidebar ."
+    "footer footer footer footer";
+}
+
+header {
+  text-align: center;
+  grid-area: header;
+  position: sticky;
+  z-index: 10;
+}
+
+/*NavBar*/
+nav {
+  position: absolute;
+  background: #00026c;
+  width: 100%;
+  text-align: right;
+  top: 100%;
+  right: 100vw;
+  z-index: 10;
+  transform-origin: top;
+  transform: scale(1, 0);
+  transition: transform 400ms easi-in-out;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  background: blue;
+  margin-bottom: 1em;
+}
+
+nav a {
+  display: block;
+  text-align: center;
+  color: dodgerblue;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: aqua;
+}
+
+#nav-toggle {
+  display: none;
+}
+
+nav.hidden {
+  transform: scale(1, 0);
+
+  transition: 500ms;
+}
+
+nav.visible {
+  transform-origin: top;
+  transform: scale(1, 1);
+  transition: 500ms;
+}
+
+/*Hamburger button*/
+.container {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-right: 1em;
+  display: inline;
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 30px;
+  height: 5px;
+  background-color: #333;
+  border-radius: 2px;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+/*End for the Hamburger button*/
+
+/*Narrow screens*/
+@media screen and (min-width: 900px) {
+  #navtoggle {
+    display: none;
+  }
+  nav {
+    right: 0;
+  }
+}
+
+/*For wide screens*/
+@media only screen and (min-width: 901px) {
+  /*Gets rid of the navigation menu*/
+  #nav-toggle {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+  .logo {
+    grid-column: 1 / 4;
+  }
+  nav {
+    all: unset;
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  nav ul {
+    display: flex;
+  }
+  nav li {
+    margin-right: 3em;
+    margin-bottom: 0;
+  }
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+
+  nav a::before {
+    content: "";
+    height: 5px;
+    display: block;
+    background: whitesmoke;
+    position: absolute;
+    top: -1em;
+    right: 0;
+    left: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+
+  nav a:hover::before {
+    transform: scale(1, 1);
+  }
+
+  nav a::after {
+    content: "";
+    height: 5px;
+    display: block;
+    background: whitesmoke;
+    position: absolute;
+    bottom: -1em;
+    right: 0;
+    left: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+
+  nav a:hover::after {
+    transform: scale(1, 1);
+  }
+}
+
+/*End of NavBar*/
+
+header,
+footer {
+  background: #00026c;
+  color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-title,
+.footer-title {
+  /*@include font -alt($color: $yellow, $font-)*/
+}
+.hero {
+  grid-area: hero;
+}
+
+.hero-title {
+  /*@include font-alt($fs-xl);*/
+  margin: 0;
+}
+
+.hero-subtitle {
+  /*@include font-base($color: white, $font-size:fs-h2);*/
+  margin: 0;
+}
+
+main {
+  grid-area: main;
+}
+
+sidebar {
+  grid-area: sidebar;
+  background: #3f3f3f;
+  padding: 2em;
+}
+
+footer {
+  grid-area: footer;
+}
+
+//java script

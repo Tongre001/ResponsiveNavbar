@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link href="src/styles.scss" />
+    <script src="src/index.js"></script>
+    <script>
+      window.onload = function() {
+        document
+          .getElementById("navtoggle")
+          .addEventListener("click", function() {
+            var classapplied = document.getElementById("nav").className;
+            if (classapplied === "visible") {
+              document.getElementById("nav").className = "hidden";
+            } else {
+              document.getElementById("nav").className = "visible";
+            }
+          });
+      };
+
+      function ToggleAnimation(x) {
+        x.classList.toggle("change");
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- The Hero, basically the title -->
+    <header>
+      <!-- #Eventually a logo will be ideal -->
+      <h1 class="header">MIJ ALL PLASTERING SYSTEMS</h1>
+      <div
+        id="navtoggle"
+        class="navtoggle container"
+        alt="menu"
+        onclick="ToggleAnimation(this);"
+        title="click for menu"
+      >
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+      <nav id="nav">
+        <ul>
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#projects">PROJECTS</a></li>
+          <li><a href="#reviews">REVIEWS</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <hero>
+      <div class="header caption">
+        Have been in the plaster business for more that 20 years.
+      </div>
+    </hero>
+
+    <main></main>
+
+    <side></side>
+
+    <footer></footer>
+  </body>
+</html>

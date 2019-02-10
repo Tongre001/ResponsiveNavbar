@@ -1,2 +1,0 @@
-# ResponsiveNavbar
-Created with CodeSandbox
